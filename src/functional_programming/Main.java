@@ -44,6 +44,8 @@ public class Main {
 		System.out.println("The total cost of the 5 Series stock is " + totalPrice + " Euro");
 		
 	}
+	
+	/*
 
 	public static void landLambda() {
 		List<Land> lands = new ArrayList<Land>(Arrays.asList(
@@ -55,6 +57,7 @@ public class Main {
 				new Land("Rose Hill", 2500, 700)
 				));
 	
+		
 		System.out.println("Lands owned:");
 		lands
 			.stream()
@@ -69,9 +72,36 @@ public class Main {
 				}
 			);
 		System.out.println("The tax owed is £" + totalTax);
+	} 
+	
+	*/
+	public static void main(String[] args) {
+		bagLambda();
 	}
 	
-	public static void main(String[] args) {
-		landLambda();
+	public static void bagLambda() {
+		List<Bag> bags = new ArrayList<Bag>(Arrays.asList(
+				new Bag("brown", "Gucci", "coated canvas", 225, 2021),
+				new Bag("red", "Versace", "leather", 195, 2020),
+				new Bag("violet", "Tory Burch", "leather", 475, 2022),
+				new Bag("grey", "Celline", "leather", 225, 2022),
+				new Bag("black", "Gucci", "leather", 1750, 2021),
+				new Bag("blue", "Michael Kors", "coated canvas", 158, 2020)
+				));
+	
+
+		System.out.println("Bags in stock: ");
+		bags
+			.stream()
+			.filter(b -> b.getMaterial().equals("leather"))
+			.forEach(b -> b.print());
+		
+		double totalPrice = bags
+			.stream()
+			.filter(b -> b.getMaterial().equals("leather"))
+			.reduce(0.00, (total, bag) -> {return total + (bag.getPrice() * 1.20);}, Double::sum);
+			
+		System.out.println("The total cost with VAT of leather bag stock is £" + totalPrice);		
 	}
+	
 }
