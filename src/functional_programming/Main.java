@@ -127,8 +127,20 @@ public class Main {
 				));
 		System.out.println("Red gemstones in stock: ");
 		gemStones.stream()
-        .filter(g -> g.getColour() == "red")
-        .forEach(g -> System.out.println(g.toString()));
+        .filter(gem -> gem.getColour() == "red")
+        .forEach(gem -> System.out.println(gem.toString()));
+		
+		System.out.println("NonRuby gemstones in stock: ");
+		printNonRubyWeights(gemStones);
 	}
-
+	
+    public static void printNonRubyWeights(List<Gem> gems)
+    {
+        gems.stream()
+        .filter(stone -> stone.getKind() != "ruby")
+        .map(stone -> stone.getWeight())
+        .forEach(detail -> System.out.println( "ct: " + String.format("%.2f", detail)));
+    }
+    
 }
+

@@ -33,4 +33,5 @@ public class Gem {
                + ", colour = " + colour 
                + ", ct = " + weight;
     }
+
 }
