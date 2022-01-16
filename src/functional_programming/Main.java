@@ -75,6 +75,9 @@ public class Main {
 	} 
 	
 	*/
+	
+	
+	/*
 	public static void main(String[] args) {
 		bagLambda();
 	}
@@ -103,5 +106,29 @@ public class Main {
 			
 		System.out.println("The total cost with VAT of leather bag stock is £" + totalPrice);		
 	}
+*/
+	public static void main(String[] args) {
+		gemLambda();
+	}
 	
+	public static void gemLambda() {
+		List<Gem> gemStones = new ArrayList<Gem>(Arrays.asList(
+				new Gem("ruby", "red", 2.23f), 
+				new Gem("saphire", "blue", 1.3f),
+				new Gem("amethyst", "purple", 0.75f),
+				new Gem("emerald", "green", 0.55f),
+				new Gem("lapis", "blue", 1.25f),
+				new Gem("diamond", "red", 0.60f), 
+				new Gem("saphire", "red", 0.50f),
+				new Gem("amethyst", "purple", 0.30f),
+				new Gem("emerald", "green", 0.83f),
+				new Gem("lapis", "blue", 0.25f),
+				new Gem("ruby", "red", 1.40f)
+				));
+		System.out.println("Red gemstones in stock: ");
+		gemStones.stream()
+        .filter(g -> g.getColour() == "red")
+        .forEach(g -> System.out.println(g.toString()));
+	}
+
 }
